@@ -29,7 +29,7 @@ class QuizBrain {
 
   // check if next question exists to avoid crashing at the end of the list
   void nextQuestion() {
-    if (_questionNumber < _questionBank.length) {
+    if (_questionNumber < _questionBank.length - 1) {
       _questionNumber++;
     }
   }
