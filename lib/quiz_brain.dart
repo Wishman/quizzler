@@ -1,8 +1,10 @@
 import 'question.dart';
 
 class QuizBrain {
+  int _questionNumber = 0;
+
   // List of Question Objects
-  List<Question> questionBank = [
+  List<Question> _questionBank = [
     Question('You can lead a cow down stairs but not up stairs.', false),
     Question('Approximately one quarter of human bones are in the feet.', true),
     Question('A slug\'s blood is green.', true),
@@ -24,4 +26,20 @@ class QuizBrain {
         'In West Virginia, USA, if you accidentally hit an animal with your car, you are free to take it home to eat.',
         true),
   ];
+
+  // check if next question exists to avoid crashing at the end of the list
+  void nextQuestion() {
+    if (_questionNumber < _questionBank.length) {
+      _questionNumber++;
+    }
+  }
+
+  // Getter V1
+  String getQuestionText() {
+    return _questionBank[_questionNumber].questionText;
+  }
+
+  bool getCorrectAnswer() {
+    return _questionBank[_questionNumber].questionAnswer;
+  }
 }
